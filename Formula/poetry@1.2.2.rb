@@ -22,7 +22,6 @@ class PoetryAT122 < Formula
   depends_on "python@3.10"
   # `six` is still used by `html5lib`
   depends_on "six"
-  depends_on "virtualenv"
 
   resource "CacheControl" do
     url "https://files.pythonhosted.org/packages/06/80/1f8ba1ced5f29514d8621003b2b0fb404ed88996e963dbca7f519ecc82ca/CacheControl-0.12.12.tar.gz"
@@ -182,6 +181,11 @@ class PoetryAT122 < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
     sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+  end
+
+  resource "virtualenv" do
+    url "https://files.pythonhosted.org/packages/07/a3/bd699eccc596c3612c67b06772c3557fda69815972eef4b22943d7535c68/virtualenv-20.16.5.tar.gz"
+    sha256 "227ea1b9994fdc5ea31977ba3383ef296d7472ea85be9d6732e42a91c04e80da"
   end
 
   resource "webencodings" do
