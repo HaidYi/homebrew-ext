@@ -1,4 +1,4 @@
-class PoetryAT12 < Formula
+class PoetryAT120 < Formula
   include Language::Python::Virtualenv
 
   desc "Python package management tool"
