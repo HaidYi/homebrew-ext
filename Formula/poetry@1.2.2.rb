@@ -1,35 +1,33 @@
-class PoetryAT120 < Formula
+class PoetryAT122 < Formula
   include Language::Python::Virtualenv
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/d6/75/2603419dcfafb3e777b304c9cb2813a8a4090db04356b750a662663c3c01/poetry-1.2.0.tar.gz"
-  sha256 "17c527d5d5505a5a7c5c14348d87f077d643cf1f186321530cde68e530bba59f"
+  url "https://files.pythonhosted.org/packages/98/4b/35736a678ef820e71e5ba895e853bc0e93eaa69c5621f47a559ce21bc588/poetry-1.2.2.tar.gz"
+  sha256 "6d9ed0b1b826a0a79190f2078d7d78483fa24bf2494f3b170e354eaa5e7b5ea1"
   license "MIT"
   head "https://github.com/python-poetry/poetry.git", branch: "1.2"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "078f4d06ca1d5115bedbae198d2be3a473e55f37ff18db2d9a035779bf11544c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a8e32ded2bead695a726d9bb7f94a6f701e1082be4182f34b32873757464bc51"
-    sha256 cellar: :any_skip_relocation, monterey:       "5b75c0c8caaa151fec3b9e774c14d2e51715ce653c5bf108c49e3fe074a85827"
-    sha256 cellar: :any_skip_relocation, big_sur:        "822ca5ef064bb96352f6984705b254c8d98fd66fd5fe0ff1b22ce9cb0735e52d"
-    sha256 cellar: :any_skip_relocation, catalina:       "441c1c9f100c0f1e38cdcda394159a374aedd88b0364e948a7c27b5dd5b7d101"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "766107054184a893989b0f0d8899e3b25d56d4e772cfbaca8966e31dcaf02361"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a195ab3faff6df6b7675c60752318185cde01cccaa9e5831f520e74bebb1cdeb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9cefb975681dbda106d50fe805453f2ab5e4a8440d2157dde7122971d94505a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6b167c88199b2c8bdeaeb95a64f258c116d43ec5a70501bc81e6b680018503d"
+    sha256 cellar: :any_skip_relocation, monterey:       "d1f050b1de44f6b1b691c1bd8e46d8aba4dbaccc41b01d7d92cef6203dcc9cd1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7b2554325938cfd831d2d8c73cc27fadecbeee450c7e140f64df133587adf806"
+    sha256 cellar: :any_skip_relocation, catalina:       "4de13eea29093afd2c2aa00f9856565a86bc350b83bf3775098ab86e4b02a2ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5256e78b4fe281c98621030a23404594eb6e2e14f40e60c6dad0f94c9a94a63"
   end
 
-  keg_only :versioned_formula
-
+  depends_on "jsonschema"
   depends_on "python@3.10"
+  # `six` is still used by `html5lib`
   depends_on "six"
-
-  resource "attrs" do
-    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
-    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
-  end
+  depends_on "virtualenv"
 
   resource "CacheControl" do
-    url "https://files.pythonhosted.org/packages/46/9b/34215200b0c2b2229d7be45c1436ca0e8cad3b10de42cfea96983bd70248/CacheControl-0.12.11.tar.gz"
-    sha256 "a5b9fcc986b184db101aa280b42ecdcdfc524892596f606858e0b7a8b4d9e144"
+    url "https://files.pythonhosted.org/packages/06/80/1f8ba1ced5f29514d8621003b2b0fb404ed88996e963dbca7f519ecc82ca/CacheControl-0.12.12.tar.gz"
+    sha256 "9c2e5208ea76ebd9921176569743ddf6d7f3bb4188dbf61806f0f8fc48ecad38"
   end
 
   resource "cachy" do
@@ -38,8 +36,8 @@ class PoetryAT120 < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "cffi" do
@@ -68,8 +66,8 @@ class PoetryAT120 < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/8e/99/7f139ec0e9d224542115ef070c79503bcb271edaaf0c1e049a5fbdaad6a5/dulwich-0.20.45.tar.gz"
-    sha256 "70710dd9ca2a442190c7e506892db074c318ac762e221f7529b8ce34802041b7"
+    url "https://files.pythonhosted.org/packages/4c/61/85f17dd9e744e027d23bee2bbafc8438fab26c175a089b1a06b664deae21/dulwich-0.20.46.tar.gz"
+    sha256 "4f0e88ffff5db1523d93d92f1525fe5fa161318ffbaad502c1b9b3be7a067172"
   end
 
   resource "filelock" do
@@ -83,23 +81,23 @@ class PoetryAT120 < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
-    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
+    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
-  resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/35/ee/889aee424a43066a06ac68e499335877775eac9b4409f7860f6af94c6688/jsonschema-4.14.0.tar.gz"
-    sha256 "15062f4cc6f591400cd528d2c355f2cfa6a57e44c820dc783aee5e23d36a831f"
+  resource "jaraco.classes" do
+    url "https://files.pythonhosted.org/packages/bf/02/a956c9bfd2dfe60b30c065ed8e28df7fcf72b292b861dca97e951c145ef6/jaraco.classes-3.2.3.tar.gz"
+    sha256 "89559fa5c1d3c34eff6f631ad80bb21f378dbcbb35dd161fd2c6b93f5be2f98a"
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a7/d8/ca70a209ea09e97e4d9feba2f6b38b4eaf918de15a7ada3f3a2246c26cf9/keyring-23.8.2.tar.gz"
-    sha256 "0d9973f8891850f1ade5f26aafd06bb16865fbbae3fc56b0defb6a14a2624003"
+    url "https://files.pythonhosted.org/packages/2a/ef/28d3d5428108111dae4304a2ebec80d113aea9e78c939e25255425d486ff/keyring-23.9.3.tar.gz"
+    sha256 "69b01dd83c42f590250fe7a1f503fc229b14de83857314b1933a3ddbf595c4a5"
   end
 
-  resource "lockfile" do
-    url "https://files.pythonhosted.org/packages/17/47/72cb04a58a35ec495f96984dddb48232b551aafb95bde614605b754fe6f7/lockfile-0.12.2.tar.gz"
-    sha256 "6aed02de03cba24efabcd600b30540140634fc06cfa603822d508d5361e9f799"
+  resource "more-itertools" do
+    url "https://files.pythonhosted.org/packages/c7/0c/fad24ca2c9283abc45a32b3bfc2a247376795683449f595ff1280c171396/more-itertools-8.14.0.tar.gz"
+    sha256 "c09443cd3d5438b8dafccd867a6bc1cb0894389e90cb53d227456b0b0bccb750"
   end
 
   resource "msgpack" do
@@ -128,13 +126,13 @@ class PoetryAT120 < Formula
   end
 
   resource "poetry-core" do
-    url "https://files.pythonhosted.org/packages/ea/47/929cccb98445b627e3a42f29290b3f6dc6c21f3dc0ba7b3bf16215298f94/poetry-core-1.1.0.tar.gz"
-    sha256 "d145ae121cf79118a8901b60f2c951c4edcc16f55eb8aaefc156aa33aa921f07"
+    url "https://files.pythonhosted.org/packages/0d/07/2a30643e4177c8edafa037c8ee3c62e4390950ab01d5ebc86e04379e2ba7/poetry-core-1.3.2.tar.gz"
+    sha256 "0ab006a40cb38d6a38b97264f6835da2f08a96912f2728ce668e9ac6a34f686f"
   end
 
   resource "poetry-plugin-export" do
-    url "https://files.pythonhosted.org/packages/7a/58/040a58ad48814a3fd22d0ca78967deb4be72fdd0e2990085379a70a8fe1d/poetry-plugin-export-1.0.6.tar.gz"
-    sha256 "af870afceb38e583afa57bcfadfa5cd35ebd74e35aacadcb802bb3a073c13adb"
+    url "https://files.pythonhosted.org/packages/d5/b4/5d38ab61a05f93c38818ae3e223282e7d0873031e1e0f2c17cb974594530/poetry-plugin-export-1.1.2.tar.gz"
+    sha256 "5e92525dd63f38ce74a51ed68ea91d753523f21ce5f9ef8d3b793e2a4b2222ef"
   end
 
   resource "ptyprocess" do
@@ -157,11 +155,6 @@ class PoetryAT120 < Formula
     sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
-  resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/42/ac/455fdc7294acc4d4154b904e80d964cc9aae75b087bbf486be04df9f2abd/pyrsistent-0.18.1.tar.gz"
-    sha256 "d4d61f8b993a7255ba714df3aca52700f8125289f84f704cf80916517c46eb96"
-  end
-
   resource "requests" do
     url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
     sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
@@ -178,18 +171,13 @@ class PoetryAT120 < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/84/51/092a8b945edc3b93f2de091ab9596006673caac063e3fac14f0fa6c69b1c/tomlkit-0.11.4.tar.gz"
-    sha256 "3235a9010fae54323e727c3ac06fb720752fe6635b3426e379daec60fbd44a83"
+    url "https://files.pythonhosted.org/packages/0c/2b/7823f215c6aec294f5ab5ff2f529aca1d85e8bec2208ae7ea89ca1413620/tomlkit-0.11.5.tar.gz"
+    sha256 "571854ebbb5eac89abcb4a2e47d7ea27b89bf29e09c35395da6f03dd4ae23d1c"
   end
 
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
     sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
-  end
-
-  resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/62/2d/06980235e155c7ee1971f77439cbbc3069e98de49540e89f2291905eb4a8/virtualenv-20.16.4.tar.gz"
-    sha256 "014f766e4134d0008dcaa1f95bafa0fb0f575795d07cae50b1bee514185d6782"
   end
 
   resource "webencodings" do
@@ -205,11 +193,21 @@ class PoetryAT120 < Formula
   def install
     virtualenv_install_with_resources
 
+    site_packages = Language::Python.site_packages("python3.10")
+    %w[jsonschema virtualenv].each do |package_name|
+      package = Formula[package_name].opt_libexec
+      (libexec/site_packages/"homebrew-#{package_name}.pth").write package/site_packages
+    end
+
     generate_completions_from_executable(libexec/"bin/poetry", "completions")
   end
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
+
+    # The poetry add command would fail in CI when keyring is enabled
+    # https://github.com/Homebrew/homebrew-core/pull/109777#issuecomment-1248353918
+    ENV["PYTHON_KEYRING_BACKEND"] = "keyring.backends.null.Keyring"
 
     assert_match version.to_s, shell_output("#{bin}/poetry --version")
     assert_match "Created package", shell_output("#{bin}/poetry new homebrew")
