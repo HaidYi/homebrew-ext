@@ -1,4 +1,4 @@
-class Poetry < Formula
+class PoetryAT12 < Formula
   include Language::Python::Virtualenv
 
   desc "Python package management tool"
@@ -6,7 +6,7 @@ class Poetry < Formula
   url "https://files.pythonhosted.org/packages/d6/75/2603419dcfafb3e777b304c9cb2813a8a4090db04356b750a662663c3c01/poetry-1.2.0.tar.gz"
   sha256 "17c527d5d5505a5a7c5c14348d87f077d643cf1f186321530cde68e530bba59f"
   license "MIT"
-  head "https://github.com/python-poetry/poetry.git", branch: "master"
+  head "https://github.com/python-poetry/poetry.git", branch: "1.2"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "078f4d06ca1d5115bedbae198d2be3a473e55f37ff18db2d9a035779bf11544c"
@@ -16,6 +16,8 @@ class Poetry < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "441c1c9f100c0f1e38cdcda394159a374aedd88b0364e948a7c27b5dd5b7d101"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "766107054184a893989b0f0d8899e3b25d56d4e772cfbaca8966e31dcaf02361"
   end
+
+  keg_only :versioned_formula
 
   depends_on "python@3.10"
   depends_on "six"
