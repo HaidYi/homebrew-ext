@@ -19,7 +19,6 @@ class PoetryAT122 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5256e78b4fe281c98621030a23404594eb6e2e14f40e60c6dad0f94c9a94a63"
   end
 
-  depends_on "jsonschema"
   depends_on "python@3.10"
   # `six` is still used by `html5lib`
   depends_on "six"
@@ -93,6 +92,11 @@ class PoetryAT122 < Formula
   resource "keyring" do
     url "https://files.pythonhosted.org/packages/2a/ef/28d3d5428108111dae4304a2ebec80d113aea9e78c939e25255425d486ff/keyring-23.9.3.tar.gz"
     sha256 "69b01dd83c42f590250fe7a1f503fc229b14de83857314b1933a3ddbf595c4a5"
+  end
+
+  resource "jsonschema" do
+    url "https://files.pythonhosted.org/packages/36/3d/ca032d5ac064dff543aa13c984737795ac81abc9fb130cd2fcff17cfabc7/jsonschema-4.17.3.tar.gz"
+    sha256 "0f864437ab8b6076ba6707453ef8f98a6a0d512a80e93f8abdb676f737ecb60d"
   end
 
   resource "more-itertools" do
